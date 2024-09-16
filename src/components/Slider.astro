@@ -14,23 +14,13 @@ const { title, images } = Astro.props; // `images` is an array of image URLs.
       </p>
     </div>
 
-    <!-- Logo Carousel Section -->
     <div class="relative flex items-center justify-center">
-      <!-- Swiper Slider Wrapper -->
       <div class="swiper-container w-full max-w-6xl">
         <div class="swiper-wrapper flex gap-8 justify-center items-center">
-          <!-- Dynamically Rendering the Logos -->
           {
-            images.map((image, index) => (
-              <div
-                class="swiper-slide flex justify-center items-center"
-                key={index}
-              >
-                <img
-                  src={image}
-                  class="h-32 w-auto object-contain"
-                  alt={`Logo ${index + 1}`}
-                />
+            images.map((image) => (
+              <div class="flex justify-center items-center">
+                <img src={image} class="h-32 w-auto object-contain" />
               </div>
             ))
           }
