@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const { title, images } = Astro.props; // `images` is an array of image URLs.
+---
+
+<Layout title="Customer Logos">
+  <div class="w-full relative py-12 bg-white">
+    <!-- Header Text -->
+    <div class="text-center mb-8">
+      <p class="text-lg font-semibold text-gray-700">
+        228,000+ customers in over 135 countries grow their businesses with
+        HubSpot
+      </p>
+    </div>
+
+    <!-- Logo Carousel Section -->
+    <div class="relative flex items-center justify-center">
+      <!-- Swiper Slider Wrapper -->
+      <div class="swiper-container w-full max-w-6xl">
+        <div class="swiper-wrapper flex gap-8 justify-center items-center">
+          <!-- Dynamically Rendering the Logos -->
+          {
+            images.map((image, index) => (
+              <div
+                class="swiper-slide flex justify-center items-center"
+                key={index}
+              >
+                <img
+                  src={image}
+                  class="h-32 w-auto object-contain"
+                  alt={`Logo ${index + 1}`}
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination Dots -->
+    <div class="swiper-pagination mt-6 flex justify-center"></div>
+  </div>
+</Layout>
